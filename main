@@ -1,0 +1,16 @@
+import os
+import subprocess
+
+root_file_directory = r"C:\Users\GREC\Pictures\test"
+
+for path, directories, files in os.walk(root_file_directory):
+    for file in files:
+         if file:
+    #       if file.endswith("MP4"):
+            full_file_path = os.path.join(path, file)
+            print(full_file_path)
+            exiftool_command1 = ["C:/Users/GREC/Downloads/exiftool.exe", "-exiftool", "-r", "-make", "-model", "-datetimeoriginal", full_file_path]
+            subprocess.run(exiftool_command1)
+
+
+# "-exiftool", "-r", "-make", "-model", "-datetimeoriginal", path
